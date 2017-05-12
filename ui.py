@@ -46,7 +46,7 @@ def print_menu(title, list_options, exit_message):  # ready to use
 # @label: string - label of the result
 def print_result(result, label):
     print("\n" + label)
-    print(result)
+    print(result + "\n")
 
     
 # This function gets a list of inputs from the user by the terminal

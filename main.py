@@ -17,26 +17,26 @@ def choose():
     option = inputs[0]
     if option == "1":
         queries.get_names_from_table()
-    if option == "2":
+    elif option == "2":
         queries.get_nicnames_from_miskolc()
-    if option == "3":
+    elif option == "3":
         queries.get_name_and_phone_by_firstname()
-    if option == "4":
+    elif option == "4":
         queries.get_name_and_phone_by_email()
-    if option == "5":
+    elif option == "5":
         queries.insert_data()
         queries.get_applicant_by_code()
-    if option == "6":
+    elif option == "6":
         queries.update_data()
         queries.get_applicant_by_name()
-    if option == "7":
+    elif option == "7":
         queries.delete_applicant()
         queries.all_applicants()
-    if option == "8":
+    elif option == "8":
         queries.all_applicants()
-    if option == "9":
+    elif option == "9":
         queries.all_mentors()
-    if option == "0":
+    elif option == "0":
         sys.exit(0)
     else:
         raise KeyError("There is no such option.")
