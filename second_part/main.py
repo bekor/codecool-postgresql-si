@@ -20,19 +20,25 @@ def index():
 
 @app.route("/mentors")
 def mentors_and_schools():
-    datas = query_handler.mentors_schools()
+    datas = query_handler.sql_mentors_schools()
     return render_template('table.html', datas=datas)
 
 
-# All school page [/all-school]
-# On this page you should show the result of a query that returns the name of 
-# the mentors plus the name and country of the school (joining with the schools table) 
-# ordered by the mentors id column.
-# BUT include all the schools, even if there's no mentor yet!
-# columns: mentors.first_name, mentors.last_name, schools.name, schools.country
+@app.route("/all-school")
+def all_school():
+    datas = query_handler.sql_all_school()
+    return render_template('table.html', datas=datas)
+
+
+@app.route("/mentors-by-country")
+def mentors_by_country():
+    datas = query_handler.sql_mentors_by_country()
+    return render_template('table.html', datas=datas)
+
 
 # Contacts page [/mentors-by-country]
-# On this page you should show the result of a query that returns the number of the mentors 
+# On this page you should show the result of a query that 
+# returns the number of the mentors 
 # per country ordered by the name of the countries
 # columns: country, count
 
