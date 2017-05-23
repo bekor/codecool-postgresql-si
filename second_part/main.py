@@ -21,30 +21,30 @@ def index():
 @app.route("/mentors")
 def mentors_and_schools():
     datas = query_handler.sql_mentors_schools()
-    return render_template('table.html', datas=datas)
+    return render_template('index.html', datas=datas)
 
 
 @app.route("/all-school")
 def all_school():
     datas = query_handler.sql_all_school()
-    return render_template('table.html', datas=datas)
+    return render_template('index.html', datas=datas)
 
 
 @app.route("/mentors-by-country")
 def mentors_by_country():
     datas = query_handler.sql_mentors_by_country()
-    return render_template('table.html', datas=datas)
+    return render_template('index.html', datas=datas)
 
 
-# Contacts page [/mentors-by-country]
-# On this page you should show the result of a query that 
-# returns the number of the mentors 
-# per country ordered by the name of the countries
-# columns: country, count
+@app.route("/contacts")
+def contacts():
+    datas = query_handler.sql_contacts()
+    return render_template('index.html', datas=datas)
 
-# Contacts page [/contacts]
-# On this page you should show the result of a query that returns the name of the school 
-# plus the name of contact person at the school (from the mentors table) ordered by the 
+# On this page you should show the result of a query that
+#  returns the name of the school 
+# plus the name of contact person at the school 
+# (from the mentors table) ordered by the 
 # name of the school
 # columns: schools.name, mentors.first_name, mentors.last_name
 

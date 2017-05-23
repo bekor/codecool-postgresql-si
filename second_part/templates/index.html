@@ -6,9 +6,18 @@
     <button name="list mentor" onclick="location.href='/mentors'" type="button">Mentors</button>
     <button name="list mentor" onclick="location.href='/all-school'" type="button">All-schools</button>
     <button name="list mentor" onclick="location.href='/mentors-by-country'" type="button">Mentors by Country</button>
-    <button name="list mentor" onclick="location.href='/mentors'" type="button">Mentors</button>
+    <button name="list mentor" onclick="location.href='/contacts'" type="button">Contacts</button>
     <button name="list mentor" onclick="location.href='/mentors'" type="button">Mentors</button>
     <button name="list mentor" onclick="location.href='/mentors'" type="button">Mentors</button>
     <button name="list mentor" onclick="location.href='/mentors'" type="button">Mentors</button>
 
+    <table>
+        {% for something in datas %}
+            <tr>
+                {% for column in something %}
+                    <td>{{ column }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
 </body>

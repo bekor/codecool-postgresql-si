@@ -32,7 +32,17 @@ def sql_mentors_by_country():
             GROUP BY schools.country
             """
     return db.query_handler(query)
-        
+
+
+def sql_contacts():
+    db = Database()
+    query = """SELECT schools.name, mentors.first_name, mentors.last_name
+            FROM mentors
+            INNER JOIN schools
+            ON mentors.city = schools.city
+            ORDER BY schools.name
+            """
+    return db.query_handler(query)
 
 def test():
     db = Database()
