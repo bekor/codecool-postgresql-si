@@ -14,7 +14,6 @@ def get_names_from_table(cursor):
     # Fetch and print the result of the last execution
     full_names = cursor.fetchall()
     ui.print_table(full_names)
-    pass
 
 
 @connect_to_sql
@@ -34,7 +33,7 @@ def get_name_and_phone_by_firstname(cursor):
     phone = cursor.fetchall()
     applicant = full_name + phone
     applicant = " ".join("%s" % t for t in applicant)
-    ui.print_result(applicant, "applicant first name is Carol: ")
+    ui.print_result(applicant, "Applicant first name is Carol: ")
     pass
 
 
@@ -47,7 +46,7 @@ def get_name_and_phone_by_email(cursor):
     phone = cursor.fetchall()
     applicant = full_name[0] + phone[0]
     applicant = " ".join("%s" % t for t in applicant)
-    ui.print_result(applicant, "adipiscingenimmi.edu people's name and phone: ")
+    ui.print_result(applicant, "Adipiscingenimmi.edu people's name and phone: ")
     pass
 
 
