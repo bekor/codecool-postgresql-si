@@ -10,6 +10,7 @@ from database_manager import query_handler
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def index():
     """ Show index page with function buttons
@@ -18,16 +19,10 @@ def index():
 
 
 @app.route("/mentors")
-def mentors():
-    datas = query_handler.test()
-    print(datas)
-
+def mentors_and_schools():
+    datas = query_handler.mentors_schools()
     return render_template('table.html', datas=datas)
-# Mentors and schools page [/mentors]
-# On this page you should show the result of a query that 
-# returns the name of the mentors plus the name and country of the 
-# school (joining with the schools table) ordered by the mentors id 
-# column (columns: mentors.first_name, mentors.last_name, schools.name, schools.country). 
+
 
 # All school page [/all-school]
 # On this page you should show the result of a query that returns the name of 
