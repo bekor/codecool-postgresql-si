@@ -13,8 +13,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    """ Show index page with function buttons
-    """
     return render_template("index.html")
 
 
@@ -41,29 +39,23 @@ def contacts():
     datas = query_handler.sql_contacts()
     return render_template('index.html', datas=datas)
 
-# On this page you should show the result of a query that
-#  returns the name of the school 
-# plus the name of contact person at the school 
-# (from the mentors table) ordered by the 
-# name of the school
-# columns: schools.name, mentors.first_name, mentors.last_name
 
-# Applicants page [/applicants]
-# On this page you should show the result of a query that returns the first name and the 
-# code of the applicants plus the creation_date of the application (joining with the 
-# applicants_mentors table) ordered by the creation_date in descending order
-# BUT only for applications later than 2016-01-01
-# columns: applicants.first_name, applicants.application_code, 
-# applicants_mentors.creation_date
+@app.route("/applicants")
+def applicants_properties():
+    datas = query_handler.sql_applicants_dates()
+    return render_template('index.html', datas=datas)
 
-# Applicants and mentors page [/applicants-and-mentors]
+
+@app.route("/applicants-and-mentors")
+def applicants_and_mentors():
+    datas = query_handler.sql_applicants_and_mentors()
+    return render_template('index.html', datas=datas)
 # On this page you should show the result of a query that returns the first name and 
 # the code of the applicants plus the name of the assigned mentor (joining through the 
 # applicants_mentors table) ordered by the applicants id column
 # Show all the applicants, even if they have no assigned mentor in the database!
 # In this case use the string 'None' instead of the mentor name
-# columns: applicants.first_name, applicants.application_code, mentor_first_name, 
-# mentor_last_name
+
 
 if __name__ == '__main__':
     app.run(debug=True)
