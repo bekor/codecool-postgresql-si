@@ -50,11 +50,6 @@ def applicants_properties():
 def applicants_and_mentors():
     datas = query_handler.sql_applicants_and_mentors()
     return render_template('index.html', datas=datas)
-# On this page you should show the result of a query that returns the first name and 
-# the code of the applicants plus the name of the assigned mentor (joining through the 
-# applicants_mentors table) ordered by the applicants id column
-# Show all the applicants, even if they have no assigned mentor in the database!
-# In this case use the string 'None' instead of the mentor name
 
 
 if __name__ == '__main__':

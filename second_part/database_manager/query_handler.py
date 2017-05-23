@@ -57,6 +57,19 @@ def sql_applicants_dates():
         return db.query_handler(query)
 
 
+def sql_applicants_and_mentors():
+    with Database() as db:
+        query = """SELECT applicants.first_name, applicants.application_code, mentors.first_name, mentors.last_name
+                FROM applicants_mentors
+                LEFT OUTER JOIN mentors
+                ON mentors.id = applicants_mentors.mentor_id
+                RIGHT OUTER JOIN applicants
+                ON applicants.id = applicants_mentors.applicant_id
+                ORDER BY applicants.id
+                """
+        return db.query_handler(query)
+
+
 def test():
     with Database() as db:
         q = "SELECT * FROM mentors"
